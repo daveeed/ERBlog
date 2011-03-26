@@ -1,0 +1,55 @@
+{
+    attributes = (
+        {columnName = dateFormat; name = dateFormat; prototypeName = varchar10; }, 
+        {columnName = emailAddress; name = emailAddress; prototypeName = varchar255; }, 
+        {
+            columnName = feedNbrRecentPosts; 
+            name = feedNbrRecentPosts; 
+            prototypeName = intNumber; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            columnName = isAllowComments; 
+            name = isAllowComments; 
+            prototypeName = boolean; 
+        }, 
+        {
+            columnName = isEmailWhenAnyonePostsComment; 
+            name = isEmailWhenAnyonePostsComment; 
+            prototypeName = boolean; 
+        }, 
+        {
+            columnName = isPublishExternalNotification; 
+            name = isPublishExternalNotification; 
+            prototypeName = boolean; 
+        }, 
+        {
+            columnName = shouldModerateComments; 
+            name = shouldModerateComments; 
+            prototypeName = boolean; 
+        }, 
+        {columnName = siteTitle; name = siteTitle; prototypeName = varchar100; }, 
+        {columnName = tagLine; name = tagLine; prototypeName = varchar100; }, 
+        {columnName = timeFormat; name = timeFormat; prototypeName = varchar10; }, 
+        {columnName = timeZone; name = timeZone; prototypeName = varchar255; }
+    ); 
+    attributesUsedForLocking = (id); 
+    className = "er.blog.eof.SystemPreferences"; 
+    classProperties = (
+        dateFormat, 
+        emailAddress, 
+        feedNbrRecentPosts, 
+        isAllowComments, 
+        isEmailWhenAnyonePostsComment, 
+        isPublishExternalNotification, 
+        shouldModerateComments, 
+        siteTitle, 
+        tagLine, 
+        timeFormat, 
+        timeZone
+    ); 
+    externalName = SystemPreferences; 
+    fetchSpecificationDictionary = {}; 
+    name = SystemPreferences; 
+    primaryKeyAttributes = (id); 
+}

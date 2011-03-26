@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="AdminPageWrapper" wocomponentcontent="false">    <binding name="pageTitle"/>
+        <validation message="'pageTitle' is a required binding.">
+            <unbound name="pageTitle"/>
+        </validation>
+    <binding name="errors"/>
+        <validation message="'errors' is a required binding.">
+            <unbound name="errors"/>
+        </validation>
+    </wo>
+</wodefinitions>

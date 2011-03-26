@@ -1,0 +1,12 @@
+<wo:AdminPageWrapper pageTitle="ERBlog - categories" errors="$errors">
+  <div id="add_category">
+    <wo:link action="$addNewCategory">Add a new category</wo:link>
+  </div>
+  <div id="category_list">
+    <wo:loop list="$dg.displayedObjects" item="$categoryItem">
+      <wo:link action="$editCategory"><wo:str value="$categoryItem.name" /></wo:link>
+      <wo:str value="$categoryItem.shortName" /> <wo:link action="$deleteCategory">Delete</wo:link>
+      <br />
+    </wo:loop>
+  </div>
+</wo:AdminPageWrapper>

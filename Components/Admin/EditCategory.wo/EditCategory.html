@@ -1,0 +1,11 @@
+<wo:AdminPageWrapper pageTitle="ERBlog - edit category" errors="$errors">
+  <wo:form>
+    <label>Long name:</label>
+    <wo:textfield value="$categoryItem.name" />
+    <br />
+    <label>Short name:</label>
+    <wo:textfield value="$categoryItem.shortName" />
+    <br />
+    <wo:submit action="$save" />
+  </wo:form>
+</wo:AdminPageWrapper>

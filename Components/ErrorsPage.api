@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="ErrorsPage" wocomponentcontent="false">    <binding name="errors"/>
+        <validation message="'errors' is a required binding.">
+            <unbound name="errors"/>
+        </validation>
+    </wo>
+</wodefinitions>

@@ -1,0 +1,14 @@
+{
+    attributes = (
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = varchar100; }, 
+        {columnName = shortName; name = shortName; prototypeName = varchar16; }
+    ); 
+    attributesUsedForLocking = (id); 
+    className = "er.blog.eof.Category"; 
+    classProperties = (name, shortName); 
+    externalName = Category; 
+    fetchSpecificationDictionary = {}; 
+    name = Category; 
+    primaryKeyAttributes = (id); 
+}

@@ -1,0 +1,31 @@
+{
+    attributes = (
+        {
+            columnName = accessLevel; 
+            name = accessLevel; 
+            prototypeName = javaEnum; 
+            valueClassName = "er.blog.enums.AccessLevel"; 
+        }, 
+        {columnName = firstName; name = firstName; prototypeName = varchar50; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = lastName; name = lastName; prototypeName = varchar50; }, 
+        {columnName = password; name = password; prototypeName = varchar16; }, 
+        {columnName = username; name = username; prototypeName = varchar16; }
+    ); 
+    attributesUsedForLocking = (id, username); 
+    className = "er.blog.eof.User"; 
+    classProperties = (accessLevel, firstName, lastName, password, posts, username); 
+    externalName = User; 
+    fetchSpecificationDictionary = {}; 
+    name = User; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Post; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = userID; sourceAttribute = id; }); 
+            name = posts; 
+        }
+    ); 
+}

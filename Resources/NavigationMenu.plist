@@ -1,0 +1,57 @@
+(
+	{
+		name = Root;
+		children = ("Posts", "Categories", "Users", "Preferences", "Logout");
+	},
+        {
+		name = "Posts";
+        pageName = "PostsListing";
+		children = ("New Post", "List Posts");
+		height = 19;
+		width = 100;
+	},
+        {
+		name = "New Post";
+        action = "session.newMovieWizardPage";
+		height = 19;
+		width = 100;
+	},
+        {
+		name = "Categories";
+        pageName = "CategoriesListing";
+		children = ("New Category");
+		height = 19;
+		width = 100;
+	},
+        {
+		name = "New Category";
+        action = "session.newMovieWizardPage";
+		height = 19;
+		width = 100;
+	},
+        {
+		name = "Users";
+		children = ("New User");
+        pageName = "UsersListing";
+		height = 19;
+		width = 130;
+	},
+        {
+		name = "New User";
+        action = "session.newMovieWizardPage";
+		height = 19;
+		width = 100;
+	},
+        {
+		name = "Preferences";
+        pageName = "EditPreferences";
+		height = 19;
+		width = 130;
+	},
+        {
+		name = "Logout";
+        action = "session.logout";
+		height = 19;
+		width = 130;
+	}     
+)
