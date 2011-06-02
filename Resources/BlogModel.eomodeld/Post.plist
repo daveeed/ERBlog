@@ -14,7 +14,7 @@
     ); 
     attributesUsedForLocking = (id, title, userID); 
     className = "er.blog.eof.Post"; 
-    classProperties = (author, content, lastModifiedDate, publishedDate, title); 
+    classProperties = (author, categories, content, lastModifiedDate, publishedDate, title); 
     externalName = Post; 
     fetchSpecificationDictionary = {}; 
     name = Post; 
@@ -27,6 +27,16 @@
             joinSemantic = EOInnerJoin; 
             joins = ({destinationAttribute = id; sourceAttribute = userID; }); 
             name = author; 
+        }, 
+        {definition = "postCategories.category"; name = categories; }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = PostCategory; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = postId; sourceAttribute = id; }); 
+            name = postCategories; 
+            propagatesPrimaryKey = Y; 
         }
     ); 
 }

@@ -5,6 +5,7 @@
     entities = (
         {className = "er.blog.eof.Category"; name = Category; }, 
         {className = "er.blog.eof.Post"; name = Post; }, 
+        {className = EOGenericRecord; name = PostCategory; }, 
         {className = "er.blog.eof.SystemPreferences"; name = SystemPreferences; }, 
         {className = "er.blog.eof.User"; name = User; }
     ); 

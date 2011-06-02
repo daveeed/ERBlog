@@ -6,9 +6,21 @@
     ); 
     attributesUsedForLocking = (id); 
     className = "er.blog.eof.Category"; 
-    classProperties = (name, shortName); 
+    classProperties = (name, posts, shortName); 
     externalName = Category; 
     fetchSpecificationDictionary = {}; 
     name = Category; 
     primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = PostCategory; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = categoryId; sourceAttribute = id; }); 
+            name = postCategories; 
+            propagatesPrimaryKey = Y; 
+        }, 
+        {definition = "postCategories.post"; name = posts; }
+    ); 
 }

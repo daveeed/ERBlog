@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = categoryId; 
+            name = categoryId; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = postId; name = postId; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (categoryId, postId); 
+    className = EOGenericRecord; 
+    externalName = PostCategory; 
+    fetchSpecificationDictionary = {}; 
+    name = PostCategory; 
+    primaryKeyAttributes = (categoryId, postId); 
+    relationships = (
+        {
+            destination = Category; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = categoryId; }); 
+            name = category; 
+        }, 
+        {
+            destination = Post; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = postId; }); 
+            name = post; 
+        }
+    ); 
+}

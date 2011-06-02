@@ -19,11 +19,13 @@ public abstract class _Category extends  ERXGenericRecord {
   public static final ERXKey<String> NAME = new ERXKey<String>("name");
   public static final ERXKey<String> SHORT_NAME = new ERXKey<String>("shortName");
   // Relationship Keys
+  public static final ERXKey<er.blog.eof.Post> POSTS = new ERXKey<er.blog.eof.Post>("posts");
 
   // Attributes
   public static final String NAME_KEY = NAME.key();
   public static final String SHORT_NAME_KEY = SHORT_NAME.key();
   // Relationships
+  public static final String POSTS_KEY = POSTS.key();
 
   private static Logger LOG = Logger.getLogger(_Category.class);
 
@@ -55,6 +57,78 @@ public abstract class _Category extends  ERXGenericRecord {
     	_Category.LOG.debug( "updating shortName from " + shortName() + " to " + value);
     }
     takeStoredValueForKey(value, _Category.SHORT_NAME_KEY);
+  }
+
+  public NSArray<er.blog.eof.Post> posts() {
+    return (NSArray<er.blog.eof.Post>)storedValueForKey(_Category.POSTS_KEY);
+  }
+
+  public NSArray<er.blog.eof.Post> posts(EOQualifier qualifier) {
+    return posts(qualifier, null);
+  }
+
+  public NSArray<er.blog.eof.Post> posts(EOQualifier qualifier, NSArray<EOSortOrdering> sortOrderings) {
+    NSArray<er.blog.eof.Post> results;
+      results = posts();
+      if (qualifier != null) {
+        results = (NSArray<er.blog.eof.Post>)EOQualifier.filteredArrayWithQualifier(results, qualifier);
+      }
+      if (sortOrderings != null) {
+        results = (NSArray<er.blog.eof.Post>)EOSortOrdering.sortedArrayUsingKeyOrderArray(results, sortOrderings);
+      }
+    return results;
+  }
+  
+  public void addToPosts(er.blog.eof.Post object) {
+    includeObjectIntoPropertyWithKey(object, _Category.POSTS_KEY);
+  }
+
+  public void removeFromPosts(er.blog.eof.Post object) {
+    excludeObjectFromPropertyWithKey(object, _Category.POSTS_KEY);
+  }
+
+  public void addToPostsRelationship(er.blog.eof.Post object) {
+    if (_Category.LOG.isDebugEnabled()) {
+      _Category.LOG.debug("adding " + object + " to posts relationship");
+    }
+    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
+    	addToPosts(object);
+    }
+    else {
+    	addObjectToBothSidesOfRelationshipWithKey(object, _Category.POSTS_KEY);
+    }
+  }
+
+  public void removeFromPostsRelationship(er.blog.eof.Post object) {
+    if (_Category.LOG.isDebugEnabled()) {
+      _Category.LOG.debug("removing " + object + " from posts relationship");
+    }
+    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
+    	removeFromPosts(object);
+    }
+    else {
+    	removeObjectFromBothSidesOfRelationshipWithKey(object, _Category.POSTS_KEY);
+    }
+  }
+
+  public er.blog.eof.Post createPostsRelationship() {
+    EOClassDescription eoClassDesc = EOClassDescription.classDescriptionForEntityName( er.blog.eof.Post.ENTITY_NAME );
+    EOEnterpriseObject eo = eoClassDesc.createInstanceWithEditingContext(editingContext(), null);
+    editingContext().insertObject(eo);
+    addObjectToBothSidesOfRelationshipWithKey(eo, _Category.POSTS_KEY);
+    return (er.blog.eof.Post) eo;
+  }
+
+  public void deletePostsRelationship(er.blog.eof.Post object) {
+    removeObjectFromBothSidesOfRelationshipWithKey(object, _Category.POSTS_KEY);
+    editingContext().deleteObject(object);
+  }
+
+  public void deleteAllPostsRelationships() {
+    Enumeration<er.blog.eof.Post> objects = posts().immutableClone().objectEnumerator();
+    while (objects.hasMoreElements()) {
+      deletePostsRelationship(objects.nextElement());
+    }
   }
 
 
