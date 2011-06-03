@@ -1,8 +1,9 @@
 package er.blog.components.admin;
 
-import com.webobjects.appserver.WOComponent;
+import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOContext;
 
+import er.blog.Session;
 import er.blog.eof.User;
 import er.extensions.components.ERXComponent;
 
@@ -15,12 +16,18 @@ public class Login extends ERXComponent {
     super(context);
   }
   
-  public WOComponent login() {
-    User loggedUser = User.fetchRequiredUser(session().defaultEditingContext(), User.USERNAME.eq(username).and(User.PASSWORD.eq(password)));
-    if (loggedUser != null) {
-      return (MainAdminPage)pageWithName(MainAdminPage.class);
-    }
-    return null;
+  public boolean haveExistingUsers() {
+    return (User.isHaveUsers());
   }
   
+  public WOActionResults login() {
+    User loggedUser = User.validateLogin(session().defaultEditingContext(), username, password);
+    session().setLoggedUser(loggedUser);
+    return null;
+  }
+
+  public Session session() {
+    return (Session)super.session();
+  }
+
 }

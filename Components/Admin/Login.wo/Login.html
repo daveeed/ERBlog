@@ -3,18 +3,24 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>untitled</title>
+    <wo:ERXJavaScript scriptFilename="sha2.js" />
   </head>
   <body>
-    <div id="login_form">
-      <wo:form>
-        <label>Username:</label>
-        <wo:textfield value="$username" />
-        <br />
-        <label>Password:</label>
-        <wo:passwordField value="$password" />
-        <br />
-        <wo:submit action="$login" />
-      </wo:form>
-    </div>
+    <wo:if condition="$haveExistingUsers">
+      <div id="login_form">
+        <wo:form>
+          <label>Username:</label>
+          <wo:textfield value="$username" name="username" id="username" />
+          <br />
+          <label>Password:</label>
+          <wo:passwordField value="$password" name="passwd" id="passwd" />
+          <br />
+          <wo:submit action="$login" onClick="Sha256.hash(value)" />
+        </wo:form>
+      </div>
+    </wo:if>
+    <wo:else>
+      <wo:CreateFirstAccount />
+    </wo:else>
   </body>
 </html>
