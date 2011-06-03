@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <title>Index page</title>
+  </head>
+  <body>
+    <p>
+      <wo:link pageName="Login">Login</wo:link>
+      <p>Posts:</p>
+      <wo:loop list="$recentPosts" item="$postItem"> </wo:loop>
+      <p>Categories:</p>
+      <ul>
+        <wo:loop list="$categories" item="$categoryItem">
+          <li><wo:str value="$categoryItem.name" /></li>
+        </wo:loop>
+      </ul>
+    </p>
+  </body>
+</html>

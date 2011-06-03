@@ -2,6 +2,7 @@ package er.blog;
 
 import er.blog.eof.Category;
 import er.blog.eof.Post;
+import er.blog.rest.controllers.MainController;
 import er.blog.rest.controllers.PostsController;
 import er.extensions.appserver.ERXApplication;
 import er.extensions.appserver.navigation.ERXNavigationManager;
@@ -38,7 +39,10 @@ public class Application extends ERXApplication {
     requestHandler.insertRoute(new ERXRoute(Post.ENTITY_NAME,"/index", ERXRoute.Method.Get, PostsController.class, "index"));
     requestHandler.addDefaultRoutes(Category.ENTITY_NAME);
     requestHandler.addDefaultRoutes(Post.ENTITY_NAME);
+    requestHandler.insertRoute(new ERXRoute("Main","", MainController.class, "index"));
     ERXRouteRequestHandler.register(requestHandler);
+        
+    setDefaultRequestHandler(requestHandler);
   }
 
   @Override
