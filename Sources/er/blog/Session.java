@@ -11,6 +11,7 @@ public class Session extends ERXSession {
   private User loggedUser;
 
   public Session() {
+    setStoresIDsInCookies(true);
   }
 
   public User loggedUser() {
