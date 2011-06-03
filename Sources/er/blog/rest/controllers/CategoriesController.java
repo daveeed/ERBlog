@@ -23,5 +23,14 @@ public class CategoriesController extends BaseController {
     generateLocationHeader(response, newCategory, "show");
     return response;    
   }
+  
+  @Override
+  public WOActionResults updateAction() throws Throwable {
+    ERXKeyFilter filter = ERXKeyFilter.filterWithAttributes();
+    Category category = routeObjectForKey("category");
+    update(category, filter);
+    editingContext().saveChanges();
+    return response(category, filter);
+  }
 
 }
