@@ -1,9 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
-	<head>
-		<title>Untitled</title>
-	</head>
-	<body>
-Hello World
-	</body>
+  <head>
+    <title>Untitled</title>
+  </head>
+  <body>
+    <p>Posts:</p>
+    <wo:loop list="$recentPosts" item="$postItem"> </wo:loop>
+    <p>Categories:</p>
+    <ul>
+      <wo:loop list="$categories" item="$categoryItem">
+        <li><wo:str value="$categoryItem.name" /></li>
+      </wo:loop>
+    </ul>
+  </body>
 </html>
